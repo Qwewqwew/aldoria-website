@@ -192,88 +192,10 @@ section { padding-block: 80px; }
   background: var(--gold-bright);
 }
 
-/* ---------- القطاعات ---------- */
-.sector-list {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-}
-.sector {
-  border: 1px solid var(--line);
-  border-top: 4px solid var(--gold-bright);
-  border-radius: var(--radius);
-  padding: 24px 20px;
-}
-.sector h3 { font-size: 1.05rem; font-weight: 700; }
-.sector p { margin-top: 8px; font-size: .94rem; color: var(--ink-soft); }
-
-/* ---------- المشاريع ---------- */
-.projects { background: var(--mist); }
-.project-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-}
-.project {
-  background: #fff;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-.project .photo {
-  aspect-ratio: 4 / 3;
-  background:
-    repeating-linear-gradient(45deg, #efece4 0 12px, #f6f4ee 12px 24px);
-  display: grid;
-  place-items: center;
-  color: var(--gold);
-  font-weight: 700;
-  font-size: .9rem;
-}
-.project .body { padding: 18px 20px 22px; }
-.project h3 { font-size: 1.05rem; font-weight: 700; }
-.project p { margin-top: 6px; font-size: .92rem; color: var(--ink-soft); }
-
-/* ---------- التواصل ---------- */
-.contact .wrap {
-  display: grid;
-  grid-template-columns: .9fr 1.1fr;
-  gap: 56px;
-}
-.contact-list { list-style: none; margin: 24px 0 0; padding: 0; }
-.contact-list li {
-  padding: 14px 0;
-  border-bottom: 1px solid var(--line);
-  display: flex;
-  gap: 12px;
-  align-items: baseline;
-}
-.contact-list b { min-width: 5.5em; color: var(--gold); }
-.contact-list span { direction: ltr; unicode-bidi: plaintext; }
-
-form { display: grid; gap: 16px; }
-.field { display: grid; gap: 6px; }
-label { font-weight: 700; font-size: .95rem; }
-input, textarea, select {
-  width: 100%;
-  font: inherit;
-  padding: 12px 14px;
-  border: 1px solid #c9c5b8;
-  border-radius: var(--radius);
-  background: #fff;
-  color: var(--ink);
-}
-input:focus, textarea:focus, select:focus {
-  outline: 3px solid var(--gold-bright);
-  outline-offset: 1px;
-  border-color: var(--gold);
-}
-textarea { min-height: 140px; resize: vertical; }
-.form-note { font-size: .88rem; color: var(--ink-soft); }
-
 /* ---------- التذييل ---------- */
 .site-footer { background: var(--ink); color: #c9c6bd; padding-block: 36px; }
 .site-footer .wrap {
+  padding-bottom: 8px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -284,9 +206,119 @@ textarea { min-height: 140px; resize: vertical; }
 .site-footer .links { display: flex; gap: 20px; }
 .site-footer .links a:hover { color: var(--gold-bright); }
 
+/* ---------- أرقام ---------- */
+.stats { background: var(--ink); color: #fff; padding-block: 40px; border-top: 4px solid var(--gold-bright); }
+.stat-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 24px; margin: 0; }
+.stat-grid div { display: flex; flex-direction: column-reverse; text-align: center; }
+.stat-grid dd { margin: 0; font-size: clamp(1.8rem, 3.4vw, 2.6rem); font-weight: 800; color: var(--gold-bright); line-height: 1.2; direction: ltr; }
+.stat-grid dd small { font-size: .5em; font-weight: 700; }
+.stat-grid dt { color: #c9c6bd; font-size: .95rem; font-weight: 600; }
+
+.about h2, .contact h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 800; }
+.facts dd { text-align: start; }
+
+.service .num { display: block; font-weight: 800; color: #5a5a5a; font-size: .9rem; margin-bottom: 6px; letter-spacing: .1em; }
+
+/* ---------- المصنع ---------- */
+.factory { background: var(--mist); }
+.steps {
+  list-style: none; margin: 0 0 40px; padding: 0;
+  display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px;
+  counter-reset: step;
+}
+.steps li {
+  counter-increment: step;
+  background: #fff; border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 18px 16px; position: relative;
+}
+.steps li::before {
+  content: counter(step);
+  display: grid; place-items: center;
+  width: 34px; height: 34px; border-radius: 50%;
+  background: var(--ink); color: var(--gold-bright); font-weight: 800;
+  margin-bottom: 10px;
+}
+.steps b { font-size: .98rem; line-height: 1.5; display: block; }
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.panel { background: #fff; border: 1px solid var(--line); border-top: 4px solid var(--gold-bright); border-radius: var(--radius); padding: 26px 24px; }
+.panel h3 { font-size: 1.15rem; font-weight: 800; }
+.check { list-style: none; margin: 12px 0 0; padding: 0; }
+.check li { padding: 8px 0; padding-inline-start: 26px; position: relative; border-bottom: 1px solid var(--line); }
+.check li:last-child { border-bottom: 0; }
+.check li::before {
+  content: ""; position: absolute; inset-inline-start: 2px; top: 1.05em;
+  width: 12px; height: 7px; border: solid var(--gold); border-width: 0 0 3px 3px; transform: rotate(-45deg);
+}
+
+/* ---------- القطاعات ---------- */
+.sector-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.sector {
+  border: 1px solid var(--line); border-inline-start: 4px solid var(--gold-bright);
+  border-radius: var(--radius); padding: 20px; font-weight: 700; font-size: 1.05rem;
+}
+
+/* ---------- المشاريع ---------- */
+.projects { background: var(--mist); }
+.project-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.project { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; display: flex; flex-direction: column; }
+.project .spec {
+  background: var(--ink); color: var(--gold-bright);
+  font-size: 2rem; font-weight: 800; padding: 22px 22px 18px; direction: ltr; text-align: right;
+  border-bottom: 3px solid var(--gold-bright);
+}
+.project .spec small { font-size: .5em; }
+.project .body { padding: 18px 22px 22px; display: flex; flex-direction: column; flex: 1; }
+.project h3 { font-size: 1.08rem; font-weight: 700; }
+.project p { margin-top: 6px; font-size: .94rem; color: var(--ink-soft); flex: 1; }
+.project .year { margin-top: 14px; font-size: .85rem; font-weight: 700; color: var(--gold); }
+
+/* ---------- الوكالات ---------- */
+.agencies { padding-block: 48px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.agencies .wrap { display: flex; flex-wrap: wrap; align-items: center; gap: 20px 40px; }
+.agencies h2 { font-size: 1.15rem; font-weight: 800; color: var(--ink-soft); }
+.agency-list { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 12px; }
+.agency-list li { display: flex; flex-direction: column; align-items: center; border: 1px solid var(--line); border-radius: var(--radius); padding: 10px 20px; min-width: 110px; }
+.agency-list b { font-size: 1.1rem; letter-spacing: .06em; direction: ltr; }
+.agency-list span { font-size: .8rem; color: var(--gold); font-weight: 600; }
+
+/* ---------- التواصل ---------- */
+.contact .wrap { display: grid; grid-template-columns: 1.1fr .9fr; gap: 56px; align-items: start; }
+.contact-lead { margin-top: 12px; color: var(--ink-soft); }
+.contact-list { list-style: none; margin: 24px 0 0; padding: 0; }
+.contact-list li { padding: 14px 0; border-bottom: 1px solid var(--line); display: flex; gap: 12px; align-items: baseline; }
+.contact-list b { min-width: 4.5em; flex-shrink: 0; color: var(--gold); }
+.contact-list a span { direction: ltr; unicode-bidi: isolate; overflow-wrap: anywhere; }
+.contact-list a:hover { color: var(--gold); }
+.contact-actions { display: grid; gap: 14px; }
+.cta {
+  display: flex; flex-direction: column; gap: 2px;
+  padding: 18px 22px; border: 2px solid var(--ink); border-radius: var(--radius);
+  transition: background .2s, color .2s;
+}
+.cta strong { font-size: 1.1rem; }
+.cta span { direction: ltr; text-align: right; font-size: .95rem; color: var(--ink-soft); overflow-wrap: anywhere; }
+.cta:hover { background: var(--ink); color: #fff; }
+.cta:hover span { color: #c9c6bd; }
+.cta-wa { background: var(--gold-bright); border-color: var(--gold-bright); }
+.cta-wa span { color: var(--ink); }
+
+/* ---------- التذييل ---------- */
+.foot-brand { display: flex; align-items: center; gap: 12px; }
+.foot-brand p { line-height: 1.5; }
+
+.wa-float {
+  position: fixed; bottom: 20px; left: 20px; z-index: 30;
+  width: 56px; height: 56px; border-radius: 50%;
+  display: grid; place-items: center;
+  background: #25d366; color: #fff; box-shadow: 0 6px 18px rgba(0,0,0,.25);
+}
+.wa-float:hover { background: #1ebe5a; }
+
 /* ---------- الجوال والأجهزة اللوحية ---------- */
 @media (max-width: 960px) {
   .service-grid, .project-grid { grid-template-columns: repeat(2, 1fr); }
+  .steps { grid-template-columns: repeat(3, 1fr); }
+  .stat-grid { grid-template-columns: repeat(3, 1fr); }
   .sector-list { grid-template-columns: repeat(2, 1fr); }
 }
 
@@ -294,31 +326,47 @@ textarea { min-height: 140px; resize: vertical; }
   body { font-size: 16px; }
   section { padding-block: 56px; }
   .hero { padding-block: 40px 56px; }
-  .hero .wrap, .about .wrap, .contact .wrap { grid-template-columns: 1fr; gap: 32px; }
+  .hero .wrap, .about .wrap, .contact .wrap, .two-col { grid-template-columns: 1fr; gap: 32px; }
   .hero-logo { order: -1; }
   .hero-logo img { width: min(70%, 260px); }
+  .hero-actions .btn { flex: 1 1 100%; text-align: center; }
 
   .menu-toggle { display: block; }
   .nav {
-    display: none;
-    position: absolute;
-    top: 100%;
-    inset-inline: 0;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0;
-    background: #fff;
-    border-bottom: 1px solid var(--line);
-    padding: 8px 20px 20px;
+    display: none; position: absolute; top: 100%; inset-inline: 0;
+    flex-direction: column; align-items: stretch; gap: 0;
+    background: #fff; border-bottom: 1px solid var(--line); padding: 8px 20px 20px;
   }
   .nav.open { display: flex; }
   .nav a { padding: 12px 0; border-bottom: 1px solid var(--line); }
   .nav .btn { margin-top: 14px; text-align: center; border-bottom: 0; }
 
+  .stat-grid { grid-template-columns: repeat(2, 1fr); gap: 20px 12px; }
+  .stat-grid div:last-child { grid-column: 1 / -1; }
+  .steps { grid-template-columns: repeat(2, 1fr); }
   .service-grid, .project-grid, .sector-list { grid-template-columns: 1fr; }
+  .facts div { flex-direction: column; gap: 2px; }
+  .agency-list li { min-width: 0; flex: 1 1 calc(50% - 12px); }
+  .wrap { padding-inline: 16px; }
+  .wa-float { bottom: 16px; left: 16px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   * { transition: none !important; }
 }
+
+/* ---------- الصور ---------- */
+.about-photo { margin: 0 0 24px; border-radius: var(--radius); overflow: hidden; border-bottom: 4px solid var(--gold-bright); }
+.about-photo img { width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; }
+.gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.gallery-grid figure { margin: 0; background: var(--mist); border-radius: var(--radius); overflow: hidden; }
+.gallery-grid img { width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; }
+.gallery-grid figcaption { padding: 10px 12px 12px; font-size: .9rem; font-weight: 600; line-height: 1.5; }
+@media (max-width: 960px) { .gallery-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 760px) {
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .gallery-grid figcaption { font-size: .82rem; padding: 8px; }
+  .project .spec { font-size: 1.7rem; }
+}
+.nw { white-space: nowrap; direction: ltr; }
