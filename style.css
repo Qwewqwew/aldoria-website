@@ -1,0 +1,324 @@
+/* =========================================================
+   شركة الدرية للأعمال المتقدمة المحدودة — ALDORIA
+   الهوية: ذهبي + أسود على خلفية بيضاء (من الشعار)
+   ========================================================= */
+
+:root {
+  --gold: #b8860b;        /* ذهبي الشعار (للنصوص والخطوط) */
+  --gold-bright: #d9a826; /* ذهبي فاتح (للأزرار والتمييز على الأسود) */
+  --ink: #141414;         /* الأسود الأساسي */
+  --ink-soft: #3a3a3a;    /* نص ثانوي */
+  --paper: #ffffff;
+  --mist: #f5f4f1;        /* خلفية أقسام فاتحة */
+  --line: #e3e0d8;
+
+  --font-ar: "Cairo", "Segoe UI", Tahoma, sans-serif;
+  --radius: 4px;
+  --wrap: 1120px;
+}
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: var(--font-ar);
+  font-size: 17px;
+  line-height: 1.8;
+  color: var(--ink);
+  background: var(--paper);
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+
+:focus-visible {
+  outline: 3px solid var(--gold-bright);
+  outline-offset: 3px;
+}
+
+.wrap {
+  width: 100%;
+  max-width: var(--wrap);
+  margin-inline: auto;
+  padding-inline: 20px;
+}
+
+h1, h2, h3 { line-height: 1.35; margin: 0; text-wrap: balance; }
+p { margin: 0; }
+
+/* ---------- الأزرار ---------- */
+.btn {
+  display: inline-block;
+  padding: 12px 28px;
+  font: inherit;
+  font-weight: 700;
+  border: 2px solid transparent;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background .2s, color .2s, border-color .2s;
+}
+.btn-gold { background: var(--gold-bright); color: var(--ink); }
+.btn-gold:hover { background: var(--ink); color: var(--gold-bright); }
+.btn-line { border-color: var(--ink); color: var(--ink); }
+.btn-line:hover { background: var(--ink); color: #fff; }
+
+/* ---------- الشريط العلوي ---------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(255, 255, 255, .96);
+  border-bottom: 1px solid var(--line);
+}
+.site-header .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 72px;
+}
+.brand { display: flex; align-items: center; gap: 12px; }
+.brand img { height: 52px; width: auto; max-width: none; flex-shrink: 0; object-fit: contain; }
+.brand-text { display: flex; flex-direction: column; line-height: 1.25; }
+.brand-text strong { font-size: 1.15rem; font-weight: 800; }
+.brand-text span { font-size: .78rem; color: var(--gold); font-weight: 600; letter-spacing: .12em; }
+
+.nav { display: flex; align-items: center; gap: 28px; }
+.nav a { font-weight: 600; font-size: .98rem; }
+.nav a:not(.btn):hover { color: var(--gold); }
+.nav .btn { padding: 8px 20px; }
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: 1px solid var(--ink);
+  border-radius: var(--radius);
+  padding: 6px 14px;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* ---------- الواجهة الرئيسية ---------- */
+.hero { padding-block: 72px 80px; }
+.hero .wrap {
+  display: grid;
+  grid-template-columns: 1.15fr .85fr;
+  align-items: center;
+  gap: 48px;
+}
+.eyebrow {
+  display: inline-block;
+  color: var(--gold);
+  font-weight: 700;
+  letter-spacing: .04em;
+  margin-bottom: 14px;
+}
+.hero h1 { font-size: clamp(2rem, 4.6vw, 3.4rem); font-weight: 800; }
+.hero h1 em { font-style: normal; color: var(--gold); }
+.hero p.lead {
+  margin-top: 20px;
+  max-width: 34em;
+  color: var(--ink-soft);
+  font-size: 1.1rem;
+}
+.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+.hero-logo { display: flex; justify-content: center; }
+.hero-logo img { width: min(100%, 420px); height: auto; aspect-ratio: 1 / 1; object-fit: contain; mix-blend-mode: multiply; }
+
+/* ---------- الأقسام العامة ---------- */
+section { padding-block: 80px; }
+.section-head { max-width: 38em; margin-bottom: 44px; }
+.section-head h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 800; }
+.section-head p { margin-top: 12px; color: var(--ink-soft); }
+.rule {
+  display: block;
+  width: 56px;
+  height: 4px;
+  background: var(--gold-bright);
+  margin-bottom: 18px;
+}
+
+/* ---------- من نحن ---------- */
+.about { background: var(--mist); }
+.about .wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: start;
+}
+.about p + p { margin-top: 16px; }
+.facts { display: grid; gap: 0; border-top: 1px solid var(--line); }
+.facts div {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--line);
+}
+.facts dt { font-weight: 700; }
+.facts dd { margin: 0; color: var(--ink-soft); text-align: left; }
+
+/* ---------- الخدمات (قسم داكن) ---------- */
+.services { background: var(--ink); color: #fff; }
+.services .section-head p { color: #c9c6bd; }
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: #2c2c2c;
+  border: 1px solid #2c2c2c;
+}
+.service {
+  background: var(--ink);
+  padding: 32px 28px;
+}
+.service h3 { font-size: 1.2rem; font-weight: 700; color: var(--gold-bright); }
+.service p { margin-top: 10px; color: #c9c6bd; font-size: .98rem; }
+.service ul { margin: 14px 0 0; padding: 0; list-style: none; font-size: .92rem; color: #e8e5dc; }
+.service li { padding-block: 3px; padding-inline-start: 18px; position: relative; }
+.service li::before {
+  content: "";
+  position: absolute;
+  inset-inline-start: 0;
+  top: .85em;
+  width: 8px;
+  height: 2px;
+  background: var(--gold-bright);
+}
+
+/* ---------- القطاعات ---------- */
+.sector-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+.sector {
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--gold-bright);
+  border-radius: var(--radius);
+  padding: 24px 20px;
+}
+.sector h3 { font-size: 1.05rem; font-weight: 700; }
+.sector p { margin-top: 8px; font-size: .94rem; color: var(--ink-soft); }
+
+/* ---------- المشاريع ---------- */
+.projects { background: var(--mist); }
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.project {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.project .photo {
+  aspect-ratio: 4 / 3;
+  background:
+    repeating-linear-gradient(45deg, #efece4 0 12px, #f6f4ee 12px 24px);
+  display: grid;
+  place-items: center;
+  color: var(--gold);
+  font-weight: 700;
+  font-size: .9rem;
+}
+.project .body { padding: 18px 20px 22px; }
+.project h3 { font-size: 1.05rem; font-weight: 700; }
+.project p { margin-top: 6px; font-size: .92rem; color: var(--ink-soft); }
+
+/* ---------- التواصل ---------- */
+.contact .wrap {
+  display: grid;
+  grid-template-columns: .9fr 1.1fr;
+  gap: 56px;
+}
+.contact-list { list-style: none; margin: 24px 0 0; padding: 0; }
+.contact-list li {
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  gap: 12px;
+  align-items: baseline;
+}
+.contact-list b { min-width: 5.5em; color: var(--gold); }
+.contact-list span { direction: ltr; unicode-bidi: plaintext; }
+
+form { display: grid; gap: 16px; }
+.field { display: grid; gap: 6px; }
+label { font-weight: 700; font-size: .95rem; }
+input, textarea, select {
+  width: 100%;
+  font: inherit;
+  padding: 12px 14px;
+  border: 1px solid #c9c5b8;
+  border-radius: var(--radius);
+  background: #fff;
+  color: var(--ink);
+}
+input:focus, textarea:focus, select:focus {
+  outline: 3px solid var(--gold-bright);
+  outline-offset: 1px;
+  border-color: var(--gold);
+}
+textarea { min-height: 140px; resize: vertical; }
+.form-note { font-size: .88rem; color: var(--ink-soft); }
+
+/* ---------- التذييل ---------- */
+.site-footer { background: var(--ink); color: #c9c6bd; padding-block: 36px; }
+.site-footer .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+.site-footer strong { color: #fff; }
+.site-footer .links { display: flex; gap: 20px; }
+.site-footer .links a:hover { color: var(--gold-bright); }
+
+/* ---------- الجوال والأجهزة اللوحية ---------- */
+@media (max-width: 960px) {
+  .service-grid, .project-grid { grid-template-columns: repeat(2, 1fr); }
+  .sector-list { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 760px) {
+  body { font-size: 16px; }
+  section { padding-block: 56px; }
+  .hero { padding-block: 40px 56px; }
+  .hero .wrap, .about .wrap, .contact .wrap { grid-template-columns: 1fr; gap: 32px; }
+  .hero-logo { order: -1; }
+  .hero-logo img { width: min(70%, 260px); }
+
+  .menu-toggle { display: block; }
+  .nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    inset-inline: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    background: #fff;
+    border-bottom: 1px solid var(--line);
+    padding: 8px 20px 20px;
+  }
+  .nav.open { display: flex; }
+  .nav a { padding: 12px 0; border-bottom: 1px solid var(--line); }
+  .nav .btn { margin-top: 14px; text-align: center; border-bottom: 0; }
+
+  .service-grid, .project-grid, .sector-list { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; }
+}
